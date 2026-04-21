@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PODZ_W_ABIR</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="top-right-bio">
+        <p class="bio-text">A 13 year old boy with dreams bigger than the sky.</p>
+        <a href="https://instagram.com/PODZ_W_ABIR" target="_blank" class="ig-link">
+            <i class="fab fa-instagram"></i> @PODZ_W_ABIR
+        </a>
+    </div>
+
+    <header>
+        <img src="logo.jpg" class="main-logo" alt="Logo">
+        <h1 id="typewriter"></h1>
+        <p class="sub-header">Inside the minds of Billionaires and World Leaders.</p>
+    </header>
+
+    <main>
+        <section class="glass-section">
+            <h2>Recent Guests</h2>
+            <div class="guest-list">
+                <span class="guest-tag">Mayor Patrick Brown</span>
+                <span class="guest-tag">Sach Jain</span>
+                <span class="guest-tag">Sam McDadi</span>
+                <span class="guest-tag host-tag">Abir Jain</span>
+            </div>
+        </section>
+
+        <section class="glass-section">
+            <h2>Interview Gallery</h2>
+            <p>Moments from the set of PODZ WITH ABIR.</p>
+            <div class="photo-grid">
+                <div class="photo-item">
+                    <img src="guest1.jpg" alt="Mayor Patrick Brown">
+                    <p class="photo-caption">With Mayor Patrick Brown</p>
+                </div>
+                <div class="photo-item">
+                    <img src="guest2.jpg" alt="Sach Jain">
+                    <p class="photo-caption">Discussion with Sach Jain</p>
+                </div>
+                <div class="photo-item">
+                    <img src="guest3.jpeg" alt="Sam McDadi">
+                    <p class="photo-caption">With Sam McDadi</p>
+                </div>
+                <div class="photo-item host-item">
+                    <img src="abir.jpg" alt="Abir Jain">
+                    <p class="photo-caption">Abir Jain - Your Host</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass-section">
+            <h2>Connect with the Network</h2>
+            <div class="contact-links">
+                <a href="mailto:abirjain858@gmail.com" class="contact-item">
+                    <span class="icon">✉️</span> abirjain858@gmail.com
+                </a>
+                <a href="tel:4379791880" class="contact-item">
+                    <span class="icon">📞</span> 437-979-1880
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const typewriterElement = document.getElementById("typewriter");
+        const phrases = ["PODZ WITH ABIR", "A 13 YEAR OLD PODCASTER", "A DREAMER"];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typeSpeed = 100;
+
+        function typeEffect() {
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                typeSpeed = 50; 
+            } else {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typeSpeed = 100;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                typeSpeed = 2000; 
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+            setTimeout(typeEffect, typeSpeed);
+        }
+        window.onload = typeEffect;
+    </script>
+</body>
+</html>
